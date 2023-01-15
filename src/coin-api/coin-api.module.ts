@@ -3,9 +3,16 @@ import { CoinApiService } from './coin-api.service';
 import { HttpModule } from '@nestjs/axios';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SocketGateway } from '../gateway/socket.gateway';
-import { ExchangeService } from '../exchange/exchange.service';
+
 import { DatabaseModule } from '../database/database.module';
-import { ExchangeProviders } from '../database/models/exchange/exchange.providers';
+
+import { ExchangeService } from '../exchange/exchange.service';
+import { CurrencyService } from '../currency/currency.service';
+import { SymbolService } from '../symbol/symbol.service';
+
+import { ExchangeProvider } from '../database/models/exchange/exchange.provider';
+import { CurrencyProvider } from '../database/models/currency/currency.provider';
+import { SymbolProvider } from '../database/models/symbol/symbol.provider';
 
 @Module({
   imports: [
@@ -25,7 +32,11 @@ import { ExchangeProviders } from '../database/models/exchange/exchange.provider
     CoinApiService,
     SocketGateway,
     ExchangeService,
-    ...ExchangeProviders,
+    CurrencyService,
+    SymbolService,
+    ...ExchangeProvider,
+    ...CurrencyProvider,
+    ...SymbolProvider,
   ],
 })
 export class CoinApiModule {}

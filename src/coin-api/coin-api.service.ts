@@ -3,7 +3,11 @@ import { Cron } from '@nestjs/schedule';
 import { HttpService } from '@nestjs/axios';
 import { ConfigService } from '@nestjs/config';
 import { SocketGateway } from '../gateway/socket.gateway';
+
 import { ExchangeService } from '../exchange/exchange.service';
+import { ExchangeDTO } from '../exchange/exchange.interface';
+import { CurrencyService } from '../currency/currency.service';
+import { SymbolService } from '../symbol/symbol.service';
 
 @Injectable()
 export class CoinApiService {
@@ -14,41 +18,39 @@ export class CoinApiService {
     private readonly config: ConfigService,
     private readonly socket: SocketGateway,
     private readonly exchangeService: ExchangeService,
+    private readonly symbolService: SymbolService,
+    private readonly currencyService: CurrencyService,
   ) {}
   @Cron('*/300 * * * * *')
   async fetchRates() {
-    const symbols = ['BTC', 'ETH'];
-    const targets = ['USD', 'EUR', 'GBP'];
+    const [symbols, currencies] = await Promise.all([
+      this.symbolService.getSymbols(),
+      this.currencyService.getCurrencies(),
+    ]);
 
     const currencyRates = await Promise.all(
-      targets.map((target: string) => {
+      currencies.map(({ label }: any) => {
         return this.http.axiosRef.get(`/live`, {
           params: {
             access_key: this.config.get('API_KEY'),
-            target,
-            symbols: symbols.join(','),
+            target: label,
+            symbols: symbols.map((symbol) => symbol.label).join(','),
           },
         });
       }),
     );
     const rows = currencyRates.map((currency) => currency.data);
 
-    // const data = {
-    //   success: true,
-    //   terms: 'https://coinlayer.com/terms',
-    //   privacy: 'https://coinlayer.com/privacy',
-    //   timestamp: 1673397066,
-    //   target: 'USD',
-    //   rates: { BTC: 17473.54226, ETH: 1330.925375 },
-    // };
-
     for (const row of rows) {
       const { target, rates, timestamp } = row;
       for (const symbol of symbols) {
-        const symbolData = {
+        const { label } = symbol;
+        const symbolData: ExchangeDTO = {
           currency: target,
-          symbol,
-          rate: rates[symbol],
+          symbol: label,
+          amount: 1,
+          rate: rates[label],
+          exchangeType: 'live',
           dateTime: new Date(timestamp * 1000),
         };
         await this.exchangeService.saveExchangeRate(symbolData);

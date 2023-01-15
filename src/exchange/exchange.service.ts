@@ -1,19 +1,19 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { Exchange } from './exchange.interface';
+import { ExchangeDTO } from './exchange.interface';
 import { Model } from 'mongoose';
 
 @Injectable()
 export class ExchangeService {
   constructor(
     @Inject('EXCHANGE_MODEL')
-    private exchangeModel: Model<Exchange>,
+    private exchangeModel: Model<ExchangeDTO>,
   ) {}
 
-  getExchangeRates(): Promise<Exchange[]> {
-    return this.exchangeModel.find().exec();
+  getExchangeRates(): Promise<ExchangeDTO[]> {
+    return this.exchangeModel.find().sort({dateTime: -1}).exec();
   }
 
-  saveExchangeRate(exchangeRate: Exchange): Promise<Exchange> {
+  saveExchangeRate(exchangeRate: ExchangeDTO): Promise<ExchangeDTO> {
     const newExchange = new this.exchangeModel(exchangeRate);
     return newExchange.save();
   }

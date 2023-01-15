@@ -1,6 +1,8 @@
-export interface Exchange {
+export interface ExchangeDTO {
   currency: string;
+  amount: number;
   symbol: string;
   rate: number;
-  dateTime: Date;
+  exchangeType: string;
+  dateTime?: Date;
 }

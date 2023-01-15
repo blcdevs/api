@@ -6,6 +6,8 @@ import { DatabaseModule } from './database/database.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ConfigModule } from '@nestjs/config';
 import { ExchangeModule } from './exchange/exchange.module';
+import { CurrencyModule } from './currency/currency.module';
+import { SymbolModule } from './symbol/symbol.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { ExchangeModule } from './exchange/exchange.module';
       isGlobal: true,
     }),
     ExchangeModule,
+    CurrencyModule,
+    SymbolModule,
   ],
 })
 export class AppModule {}
