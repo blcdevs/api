@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const DB_NAME = process.env.MONGO_URL || 'mongodb://localhost:27017/exchange_rates';
+const DB_NAME = process.env.DB_URL || 'mongodb://localhost:27017/exchange_rates';
 
 /**
  * Seeders List
