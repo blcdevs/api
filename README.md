@@ -56,13 +56,15 @@
         docker run -p 3000:3000 currency-exchange-widget
       ```
 
-  8. The application should now be running on http://localhost:3000    
+  8. The server should now be running on http://localhost:3232    
 
   # Demo Link
     [YouTube Link](youtube.com/blcd/exchange_task) 
     [Site Link](youtube.com/blcd/exchange_task) 
 
-
+  # Clone the frontend
+    [Frontend](https://github.com/blcdevs/Frontend-assement) 
+    
 # Built With
    - Node.js and npm
    - TypeScript
