@@ -54,6 +54,8 @@
         ```
   7. The server should now be running on http://localhost:3232
 
+# Clone the frontend
+    [Frontend](https://github.com/blcdevs/Frontend-assement) 
   
   8. Build the project's Docker image by running the following command in the project root folder:
       ```
@@ -67,9 +69,6 @@
   # Demo Link
     [YouTube Link](youtube.com/blcd/exchange_task) 
     [Site Link](youtube.com/blcd/exchange_task) 
-
-  # Clone the frontend
-    [Frontend](https://github.com/blcdevs/Frontend-assement) 
     
 # Built With
    - Node.js and npm
