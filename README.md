@@ -47,16 +47,22 @@
         ```
          npm run migration:run
         ```
-  6. Build the project's Docker image by running the following command in the project root folder:
+
+ 6. Run the project
+        ```
+         npm run start:dev
+        ```
+  7. The server should now be running on http://localhost:3232
+
+  
+  8. Build the project's Docker image by running the following command in the project root folder:
       ```
       docker build -t currency-exchange-widget
       ```
-  7. Start the back-end service by running the following command in the project root folder:
+ 9. Start the back-end service by running the following command in the project root folder:
       ```
-        docker run -p 3000:3000 currency-exchange-widget
-      ```
-
-  8. The server should now be running on http://localhost:3232    
+        docker run -p 3232:3232 currency-exchange-widget
+      ``` 
 
   # Demo Link
     [YouTube Link](youtube.com/blcd/exchange_task) 
