@@ -59,12 +59,16 @@
   
   8. Build the project's Docker image by running the following command in the project root folder:
       ```
-      docker build -t currency-exchange-widget
+      docker build -t currency_exchange_widget_dev
       ```
  9. Start the back-end service by running the following command in the project root folder:
       ```
-        docker run -p 3232:3232 currency-exchange-widget
+        docker run -p 3232:3232 currency_exchange_widget_dev
       ``` 
+      ### Enter the link below
+      ```
+      http://localhost:3232/exchanges
+      ```
 
   # Demo Link
     [YouTube Link](youtube.com/blcd/exchange_task) 
