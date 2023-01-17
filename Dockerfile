@@ -1,8 +1,12 @@
-FROM node:18.7.0-alpine As development
+FROM node:18-alpine As development
 
 WORKDIR /usr/src/app
 
 COPY package*.json ./
+
+RUN npm install glob rimraf
+
+RUN npm install -g @nestjs/cli
 
 RUN npm install --only=development
 
@@ -10,7 +14,7 @@ COPY . .
 
 RUN npm run build
 
-FROM node:18.7.0-alpine as production
+FROM node:18-alpine As production
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}

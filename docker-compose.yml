@@ -1,0 +1,38 @@
+version: '3.9'
+services:
+  mongodb:
+    image : mongo:latest
+    container_name: exchange
+    volumes:
+      - mongodb:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      - nesjs-network
+    restart: always
+  api:
+    container_name: currency_exchange_widget_dev
+    image: currency-exchange-widget-dev:1.0.0
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: npm run start:dev
+    ports:
+      - 3232:3232
+    networks:
+      - nesjs-network
+    environment:
+      API_BASE: http://api.coinlayer.com/api/
+      API_KEY: 1147b0e919a8812479e9d1bdcea045ed
+      # DB_URL: mongodb://mongodb:27017
+      DB_URL: mongodb+srv://exhange:exhange@cluster0.67wypio.mongodb.net/exhange
+      DB_NAME: exchage
+      CRON_TIMEOUT: 60000
+      PORT: 3232  
+    depends_on:
+      - mongodb
+volumes:
+   mongodb: {}
+networks:
+    nesjs-network:
+      driver: bridge
