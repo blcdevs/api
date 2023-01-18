@@ -79,10 +79,12 @@
       http://localhost:3232/exchanges
       ```
     <p>NOTE: you may get this error: TypeError: Cannot read properties of undefined (reading 'BTC'). That's because my api call to coinlayer.com has exceeded limit of 100 request. You can replace your api in the .env file</p>
-  # Demo Link
-[![Watch the video](https://img.youtube.com/vi/hNILMSGcNxs/default.jpg)](https://www.youtube.com/watch?v=hNILMSGcNxs)
 
-    
+# Demo Link
+  <a href="http://www.youtube.com/watch?feature=player_embedded&v=hNILMSGcNxs" target="_blank">
+ <img src="http://img.youtube.com/vi/hNILMSGcNxs/mqdefault.jpg" alt="Watch the video" width="400" height="200" border="10" />
+</a>
+
 # Built With
    - Node.js and npm
    - TypeScript
