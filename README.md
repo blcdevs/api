@@ -43,7 +43,8 @@
      - DB_NAME=exchange_rates
      - CRON_TIMEOUT=60000
       ```  
-  5. Run the migrations to set up the database
+  5. Run the migrations to set up the database.
+    NOTE: Just a quick note, my seeder command was not working so, I'll say you should use the docker image for the backend api.
       - Run all seeders
         ```
          md-seed run
@@ -60,9 +61,11 @@
         ```
   7. The server should now be running on http://localhost:3232
 
-# Clone the frontend
+## Clone the frontend
     [Frontend](https://github.com/blcdevs/Frontend-assement) 
-  
+
+
+## Clone the frontend  
   8. Build the project's Docker image by running the following command in the project root folder:
       ```
       docker build -t exchange-widget-prod
