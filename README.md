@@ -59,15 +59,11 @@
   
   8. Build the project's Docker image by running the following command in the project root folder:
       ```
-      docker build -t 956280ba7777b788e23a80df27d2508c8ce7d0c6a3552c1b0ba456294243f898
-      OR
-      docker build -t currency-exchange-widget-dev
+      docker build -t exchange-widget-prod
       ```
  9. Start the back-end service by running the following command in the project root folder:
       ```
-        docker run -p 3232:3232 956280ba7777b788e23a80df27d2508c8ce7d0c6a3552c1b0ba456294243f898
-        OR
-        docker run -p 3232:3232 currency-exchange-widget-dev
+        docker run -p 3232:3232 exchange-widget-prod
       ``` 
       ### Enter the link below
       ```
