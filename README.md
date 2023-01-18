@@ -80,9 +80,8 @@
       ```
     <p>NOTE: you may get this error: TypeError: Cannot read properties of undefined (reading 'BTC'). That's because my api call to coinlayer.com has exceeded limit of 100 request. You can replace your api in the .env file</p>
   # Demo Link
-    [![Youtube demo video link]
-    (https://img.youtube.com/vi/hNILMSGcNxs/maxresdefault.jpg)]
-    (https://www.youtube.com/watch?v=hNILMSGcNxs)
+[![Watch the video](https://img.youtube.com/vi/hNILMSGcNxs/default.jpg)](https://www.youtube.com/watch?v=hNILMSGcNxs)
+
     
 # Built With
    - Node.js and npm
