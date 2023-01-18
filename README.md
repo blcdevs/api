@@ -14,6 +14,8 @@
   ### Prerequisites
     
    - Node.js and npm
+   - NestJs
+   - coinlayer api
    - TypeScript
    - JavaScript
    - Reactjs
@@ -44,7 +46,7 @@
      - CRON_TIMEOUT=60000
       ```  
   5. Run the migrations to set up the database.
-    NOTE: Just a quick note, my seeder command was not working so, I'll say you should use the docker image for the backend api. Howver, you may want to add the symbols and currencies manually from db GUI.
+    NOTE: Just a quick note, my seeder command was not working so, I'll say you should use the docker image for the backend api. Howver, you may want to add the symbols and currencies manually from db GUI. This commands may not be relevant for now until maybe I updated with latest working seeder codes anc commands.  
       - Run all seeders
         ```
          md-seed run
