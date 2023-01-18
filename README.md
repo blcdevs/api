@@ -37,15 +37,20 @@
   4. Create a .env file in the root of the project and specify the following environment variables:  
 
       ```
-        API_BASE=http://api.coinlayer.com/api/
-        API_KEY= coinlayer.com_api_key
-        DB_URL=mongodb+srv://exhange:You_DB_User_Password_Here@cluster0.67wypio.mongodb.net/exhange - You can use mongo locally with mongodb://localhost:27017/exchage
-        DB_NAME=exchange_rates
-        CRON_TIMEOUT=60000
+     - API_BASE=http://api.coinlayer.com/api/
+     - API_KEY= coinlayer.com_api_key
+     - DB_URL=mongodb+srv://exhange:You_DB_User_Password_Here@cluster0.67wypio.mongodb.net/exhange - You can use mongo locally with mongodb://localhost:27017/exchage
+     - DB_NAME=exchange_rates
+     - CRON_TIMEOUT=60000
       ```  
   5. Run the migrations to set up the database
+      - Run all seeders
         ```
-         npm run migration:run
+         md-seed run
+        ```
+     - Drop the database before seeding 
+        ```
+        md-seed run --dropdb
         ```
 
  6. Run the project
@@ -65,11 +70,11 @@
       ```
         docker run -p 3232:3232 exchange-widget-prod
       ``` 
-      ### Enter the link below
+      ### Enter the link below for the api
       ```
       http://localhost:3232/exchanges
       ```
-
+    <p>NOTE: you may get this error: TypeError: Cannot read properties of undefined (reading 'BTC'). That's because my api call to coinlayer.com has exceeded limit of 100 request. You can replace your api in the .env file</p>
   # Demo Link
     [YouTube Link](youtube.com/blcd/exchange_task) 
     [Site Link](youtube.com/blcd/exchange_task) 
