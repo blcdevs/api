@@ -44,7 +44,7 @@
      - CRON_TIMEOUT=60000
       ```  
   5. Run the migrations to set up the database.
-    NOTE: Just a quick note, my seeder command was not working so, I'll say you should use the docker image for the backend api.
+    NOTE: Just a quick note, my seeder command was not working so, I'll say you should use the docker image for the backend api. Howver, you may want to add the symbols and currencies manually from db GUI.
       - Run all seeders
         ```
          md-seed run
@@ -65,7 +65,7 @@
     [Frontend](https://github.com/blcdevs/Frontend-assement) 
 
 
-## Clone the frontend  
+## Using the docker image 
   8. Build the project's Docker image by running the following command in the project root folder:
       ```
       docker build -t exchange-widget-prod
