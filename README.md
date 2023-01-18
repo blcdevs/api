@@ -38,7 +38,7 @@
 
       ```
      - API_BASE=http://api.coinlayer.com/api/
-     - API_KEY= coinlayer.com_api_key
+     - API_KEY= coinlayercom_api_key_here
      - DB_URL=mongodb+srv://exhange:You_DB_User_Password_Here@cluster0.67wypio.mongodb.net/exhange - You can use mongo locally with mongodb://localhost:27017/exchage
      - DB_NAME=exchange_rates
      - CRON_TIMEOUT=60000
