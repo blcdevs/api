@@ -48,7 +48,8 @@
         ```
          md-seed run
         ```
-     - Drop the database before seeding 
+       ### Option 
+     - If you'll like to drop existing db, run the below
         ```
         md-seed run --dropdb
         ```
